@@ -1,4 +1,4 @@
-# Quick Response Group - SEN 401 Lab Assessment
+# Quick Response Group - SEN 401 Lab Assessment (Edited)
 
 ## Task 1: Modular Python Project
 
