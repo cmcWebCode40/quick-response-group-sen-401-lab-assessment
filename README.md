@@ -2,7 +2,8 @@
 
 ## Task 1: Modular Python Project
 
-A modular Python application that manages and analyses student score data.
+This project is a modular Python application used to manage and analyse student scores. 
+It demonstrates modular programming by separating data, utility functions, and the main program into different modules.
 
 ### Project Structure
 
