@@ -2,31 +2,6 @@
 
 ## Quick Response Group | SEN 401 Lab Assessment
 
----
-
-## Table of Contents
-
-1. [Introduction](#1-introduction)
-2. [Repository Setup](#2-repository-setup)
-3. [Software Maintenance Tasks](#3-software-maintenance-tasks)
-   - [3.1 Corrective Maintenance](#31-corrective-maintenance)
-   - [3.2 Adaptive Maintenance](#32-adaptive-maintenance)
-   - [3.3 Perfective Maintenance](#33-perfective-maintenance)
-   - [3.4 Preventive Maintenance](#34-preventive-maintenance)
-4. [Version Control Using Git](#4-version-control-using-git)
-5. [Git Change Logs](#5-git-change-logs)
-6. [Configuration Status Accounting](#6-configuration-status-accounting)
-7. [Screenshots](#7-screenshots)
-8. [Results & Observations](#8-results--observations)
-9. [Conclusion](#9-conclusion)
-
----
-
-## 1. Introduction
-
-### Objective
-
-This lab focuses on **Software Configuration Status Accounting (CSA)** — the practice of tracking and documenting every change in a software project using Git. The goal is to maintain a complete audit trail of configuration items (source files, branches, tags, commits) so that any version of the software can be reproduced and any change can be traced back to its origin.
 
 ### Project Overview
 
@@ -77,9 +52,6 @@ pip install -r requirements.txt
 python app.py
 ```
 
-> 📸 **[Screenshot Placeholder: Terminal showing successful `python app.py` output]**
-
----
 
 ## 3. Software Maintenance Tasks
 
@@ -120,8 +92,6 @@ class InventoryItem(BaseModel):
 
 The `app.py` entry point also guards against an empty inventory list before running any analysis.
 
-> 📸 **[Screenshot Placeholder: `utils/helpers.py` showing empty-list guards in VS Code]**
-
 ---
 
 ### 3.2 Adaptive Maintenance
@@ -137,8 +107,6 @@ The `app.py` entry point also guards against an empty inventory list before runn
 | **`from __future__ import annotations`** | Forward-reference support in `utils/helpers.py` |
 | **`statistics.median`** | Standard library function used for median price calculation |
 | **`@property` computed field** | `stock_value` is a computed property on the model: `quantity * price` |
-
-> 📸 **[Screenshot Placeholder: `inventory.py` showing Pydantic v2 model in VS Code]**
 
 ---
 
@@ -157,63 +125,6 @@ The `app.py` entry point also guards against an empty inventory list before runn
 | **Well-stocked items** | Items above the threshold displayed with ✅ |
 | **Currency formatting** | All monetary values shown with `$` prefix and comma separators |
 
-**Console Output:**
-
-```
-================================================================
-        📦  INVENTORY STOCK ANALYSIS REPORT
-================================================================
-
-----------------------------------------------------------------
-  Summary Statistics
-----------------------------------------------------------------
-╒══════════════════════╤════════════════════════════╕
-│ Metric               │ Value                      │
-╞══════════════════════╪════════════════════════════╡
-│ Total Items          │ 10                         │
-├──────────────────────┼────────────────────────────┤
-│ Total Units in Stock │ 1580                       │
-├──────────────────────┼────────────────────────────┤
-│ Total Stock Value    │ $33,655.70                 │
-├──────────────────────┼────────────────────────────┤
-│ Average Unit Price   │ $36.77                     │
-├──────────────────────┼────────────────────────────┤
-│ Median Unit Price    │ $27.74                     │
-├──────────────────────┼────────────────────────────┤
-│ Highest Value Item   │ USB-C Hub ($5,100.00)      │
-├──────────────────────┼────────────────────────────┤
-│ Lowest Value Item    │ Wireless Mouse ($1,948.50) │
-╘══════════════════════╧════════════════════════════╛
-
-----------------------------------------------------------------
-  Inventory Ranked by Stock Value (Highest → Lowest)
-----------------------------------------------------------------
-╒════════╤═════════════════════════════╤═══════╤══════════════╤═══════════════╕
-│  Rank  │ Item Name                   │  Qty  │   Unit Price │   Stock Value │
-╞════════╪═════════════════════════════╪═══════╪══════════════╪═══════════════╡
-│   1    │ USB-C Hub                   │  200  │       $25.50 │     $5,100.00 │
-│   2    │ Laptop Sleeve 15 inch       │  300  │       $15.00 │     $4,500.00 │
-│   3    │ Mechanical Keyboard         │  85   │       $49.99 │     $4,249.15 │
-│  ...   │ ...                         │  ...  │          ... │           ... │
-╘════════╧═════════════════════════════╧═══════╧══════════════╧═══════════════╛
-
-----------------------------------------------------------------
-  ⚠️  Low Stock Alert (below 50 units)
-----------------------------------------------------------------
-╒═════════════════════════════╤═══════╤══════════════╤═══════════════╕
-│ Item Name                   │   Qty │ Unit Price   │ Stock Value   │
-╞═════════════════════════════╪═══════╪══════════════╪═══════════════╡
-│ Noise Cancelling Headphones │    45 │ $89.99       │ $4,049.55     │
-│ Portable SSD 1TB            │    30 │ $79.99       │ $2,399.70     │
-╘═════════════════════════════╧═══════╧══════════════╧═══════════════╛
-
-================================================================
-        ✅  Report Complete
-================================================================
-```
-
-> 📸 **[Screenshot Placeholder: Full terminal output of `python app.py`]**
-
 ---
 
 ### 3.4 Preventive Maintenance
@@ -231,8 +142,6 @@ The `app.py` entry point also guards against an empty inventory list before runn
 | **Separation of concerns** | Data model (`inventory.py`), logic (`utils/helpers.py`), and presentation (`app.py`) are cleanly separated |
 | **Display helpers** | `app.py` splits output into focused functions: `display_summary()`, `display_full_inventory()`, `display_restock_alerts()`, `display_well_stocked()` |
 | **Constants** | `BORDER`, `DIVIDER`, `RESTOCK_THRESHOLD` defined as module-level constants |
-
-> 📸 **[Screenshot Placeholder: `utils/helpers.py` showing docstrings and type hints in VS Code]**
 
 ---
 
@@ -270,7 +179,6 @@ git log --oneline --graph --all
 git log --pretty=format:"%h | %an | %ad | %s" --date=short
 ```
 
-> 📸 **[Screenshot Placeholder: Run the following command and capture the output]**
 >
 > ```bash
 > git log --oneline --graph --all
@@ -285,7 +193,6 @@ git tag -a v1.2 -m "Release v1.2 — Lab 3: Status Accounting & Auditing Complet
 git push origin main --tags
 ```
 
-> 📸 **[Screenshot Placeholder: Run the following command and capture the output]**
 >
 > ```bash
 > git tag -n
@@ -323,7 +230,6 @@ git log --stat --oneline
 git show <commit-hash>
 ```
 
-> 📸 **[Screenshot Placeholder: Run the following command and capture the output]**
 >
 > ```bash
 > git log --pretty=format:"%h | %an | %ad | %s" --date=short
@@ -362,7 +268,6 @@ git show <commit-hash>
 | `maint/task-2-software-maintenance` | Task 2 maintenance work | Merged → `main` (v1.1) |
 | `dev-task-3-status-accounting-auditing` | Task 3 development work | Merged → `main` (v1.2) |
 
-> 📸 **[Screenshot Placeholder: Run the following command and capture the output]**
 >
 > ```bash
 > git branch -a
@@ -376,7 +281,6 @@ git show <commit-hash>
 | `v1.1` | Task 2 — Software maintenance complete | `main` |
 | `v1.2` | Task 3 — Status accounting & auditing complete | `main` |
 
-> 📸 **[Screenshot Placeholder: Run the following command and capture the output]**
 >
 > ```bash
 > git tag -n
@@ -393,7 +297,6 @@ This table maps each commit to the specific maintenance task it addresses:
 | *(hash)* | `feat: add main app with tabulate output, rankings, and restock alerts` | Perfective + Preventive | `app.py` |
 | *(hash)* | `docs: add Lab 3 status accounting report and changelog` | Documentation | `README.md`, `changelog.txt` |
 
-> 📸 **[Screenshot Placeholder: Run the following command and capture the output]**
 >
 > ```bash
 > git log --stat --oneline
@@ -428,28 +331,8 @@ git diff v1.1..v1.2 --stat
 
 ---
 
-## 7. Screenshots
 
-> Replace each placeholder below with an actual screenshot before converting to PDF.
-
-| # | Description | Screenshot / Command |
-|---|---|---|
-| 1 | `inventory.py` — Pydantic model and data in VS Code | 📸 *[Screenshot Placeholder]* |
-| 2 | `utils/helpers.py` — helper functions with docstrings | 📸 *[Screenshot Placeholder]* |
-| 3 | `app.py` — main entry point in VS Code | 📸 *[Screenshot Placeholder]* |
-| 4 | Terminal: `python app.py` full output | 📸 *[Screenshot Placeholder]* |
-| 5 | Terminal: `git log --oneline --graph --all` | Run: `git log --oneline --graph --all` |
-| 6 | Terminal: `git log --pretty=format:"%h \| %an \| %ad \| %s" --date=short` | Run: `git log --pretty=format:"%h \| %an \| %ad \| %s" --date=short` |
-| 7 | Terminal: `git branch -a` | Run: `git branch -a` |
-| 8 | Terminal: `git tag -n` | Run: `git tag -n` |
-| 9 | Terminal: `git log --stat --oneline` | Run: `git log --stat --oneline` |
-| 10 | Terminal: `git diff v1.1..v1.2 --stat` | Run: `git diff v1.1..v1.2 --stat` |
-| 11 | GitHub: Branch view showing all branches | 📸 *[Screenshot Placeholder]* |
-| 12 | GitHub: Releases page showing v1.0, v1.1, v1.2 | 📸 *[Screenshot Placeholder]* |
-
----
-
-## 8. Results & Observations
+## 7. Results & Observations
 
 ### Key Results
 
@@ -476,7 +359,7 @@ git diff v1.1..v1.2 --stat
 
 ---
 
-## 9. Conclusion
+## 8. Conclusion
 
 ### Lessons Learned
 
@@ -493,7 +376,3 @@ git diff v1.1..v1.2 --stat
 - **Accountability:** The commit history shows who made each change and why.
 - **Compliance:** CSA records satisfy audit requirements in regulated industries.
 - **Change Impact Analysis:** `git diff` between versions reveals the scope of changes for risk assessment.
-
----
-
-*Report prepared by Quick Response Group — SEN 401 Lab Assessment*
