@@ -56,7 +56,6 @@ def get_average_score(students):
     return round(total / len(students), 2)           # ZeroDivisionError if empty
 ```
 
-> 📸 **[Screenshot Placeholder: Original utils.py showing unguarded functions]**
 
 **After (Task 2 — Bug Fixed):**
 
@@ -76,7 +75,6 @@ def get_average_score(students: list[Student]) -> float:
     return round(total / len(students), 2)
 ```
 
-> 📸 **[Screenshot Placeholder: Updated utils.py showing guarded functions]**
 
 **Additional Corrective Fix — Data Validation:**
 
@@ -88,8 +86,6 @@ class Student(BaseModel):
     name: str = Field(..., min_length=1, description="Student's full name")
     score: int = Field(..., ge=0, le=100, description="Student's score (0-100)")
 ```
-
-> 📸 **[Screenshot Placeholder: models.py Pydantic validation in VS Code]**
 
 **Git Command:**
 
@@ -113,29 +109,6 @@ git commit -m "fix: add empty-list guards and Pydantic validation to prevent run
 | **`from __future__ import annotations`** | Added for forward-reference support in type hints |
 | **`statistics.median`** | Used the standard library `statistics` module for median calculation |
 
-**Before (Task 1):**
-
-```python
-# task-1/students.py — Plain dictionaries, no validation
-students = [
-    {"name": "Okechukwu Ogbonnaya", "score": 88},
-    ...
-]
-```
-
-**After (Task 2):**
-
-```python
-# task-2/students.py — Validated Pydantic Student objects
-from models import Student
-
-students: list[Student] = [
-    Student(name="Okechukwu Ogbonnaya", score=88),
-    ...
-]
-```
-
-> 📸 **[Screenshot Placeholder: students.py before and after comparison]**
 
 **Git Command:**
 
@@ -157,7 +130,7 @@ git commit -m "feat: adapt code for Python 3.12+ with Pydantic v2 data validatio
 | **Median score** | Added `get_median_score()` using `statistics.median` |
 | **Letter grades** | Added `grade_student()` function (A/B/C/F scale) |
 | **Tabulate tables** | All console output now uses `tabulate` with `fancy_grid` format |
-| **Emoji indicators** | Added 📊 and ✅ visual markers for report sections |
+| **Emoji indicators** | Added  and  visual markers for report sections |
 | **Section headers** | Clear visual separators between report sections |
 
 **Before (Task 1 — Plain text output):**
@@ -173,13 +146,11 @@ Highest Scorer: Michael Lawrence with 95 points
 Lowest Scorer: Confidence Ogboarote Ojenomoh with 55 points
 ```
 
-> 📸 **[Screenshot Placeholder: Task 1 console output]**
-
 **After (Task 2 — Enhanced tabulated output):**
 
 ```
 ============================================================
-        📊  STUDENT SCORE ANALYSIS REPORT
+           STUDENT SCORE ANALYSIS REPORT
 ============================================================
 
 ------------------------------------------------------------
@@ -209,8 +180,6 @@ Lowest Scorer: Confidence Ogboarote Ojenomoh with 55 points
 │  ...   │ ...                           │  ...    │   ...   │
 ╘════════╧═══════════════════════════════╧═════════╧═════════╛
 ```
-
-> 📸 **[Screenshot Placeholder: Task 2 enhanced console output]**
 
 **Git Command:**
 
@@ -263,8 +232,6 @@ def get_highest_scorer(students: list[Student]) -> Student | None:
     return max(students, key=lambda s: s.score)
 ```
 
-> 📸 **[Screenshot Placeholder: Side-by-side comparison of utils.py before and after refactoring]**
-
 **Git Command:**
 
 ```bash
@@ -294,7 +261,6 @@ git checkout -b maint/task-2-software-maintenance
 | 4 | `refactor: add docstrings, type hints, and modular structure for maintainability` | Preventive |
 | 5 | `docs: add Lab 2 maintenance report with step-by-step documentation` | Documentation |
 
-> 📸 **[Screenshot Placeholder: Git log showing commit history on maint/ branch]**
 
 ### Merge & Tag
 
@@ -305,28 +271,8 @@ git tag -a v1.1 -m "Release v1.1 — Software Maintenance Tasks Complete"
 git push origin main --tags
 ```
 
-> 📸 **[Screenshot Placeholder: Git tag v1.1 in terminal or GitHub]**
 
----
-
-## 5. Screenshots
-
-| # | Description | Screenshot |
-|---|---|---|
-| 1 | Original `utils.py` (Task 1) — unguarded functions | 📸 *[Screenshot Placeholder]* |
-| 2 | Updated `utils.py` (Task 2) — with empty-list guards | 📸 *[Screenshot Placeholder]* |
-| 3 | `models.py` — Pydantic Student model in VS Code | 📸 *[Screenshot Placeholder]* |
-| 4 | `students.py` before vs after comparison | 📸 *[Screenshot Placeholder]* |
-| 5 | Task 1 console output (plain text) | 📸 *[Screenshot Placeholder]* |
-| 6 | Task 2 console output (enhanced tabulate tables) | 📸 *[Screenshot Placeholder]* |
-| 7 | Side-by-side `utils.py` refactoring comparison | 📸 *[Screenshot Placeholder]* |
-| 8 | Git log showing commit history on `maint/` branch | 📸 *[Screenshot Placeholder]* |
-| 9 | Git tag `v1.1` in terminal or GitHub releases | 📸 *[Screenshot Placeholder]* |
-| 10 | GitHub branch view showing `maint/task-2-software-maintenance` | 📸 *[Screenshot Placeholder]* |
-
----
-
-## 6. Results & Observations
+## 5. Results & Observations
 
 ### Key Results
 
@@ -356,7 +302,7 @@ git push origin main --tags
 
 ---
 
-## 7. Conclusion
+## 6. Conclusion
 
 ### Lessons Learned
 
