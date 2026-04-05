@@ -1,5 +1,5 @@
 students = [
-    {"name": "Okechukwu Ogbonnaya", "score": 88},
+    {"name": "Ogbonnaya Okechukwu", "score": 88},
     {"name": "Kelly Ikenga", "score": 72},
     {"name": "Michael Lawrence", "score": 95},
     {"name": "Michael Chinonso Chinweike", "score": 64},
